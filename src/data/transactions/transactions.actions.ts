@@ -1,5 +1,5 @@
 import { ActionType, AppThunk } from "../state";
-import { TransactionDto } from "../../types";
+import { FilterDto, TransactionDto } from "../../types";
 import * as api from "./transactions.api";
 
 export const setLoading = (loading: boolean) =>
@@ -26,13 +26,10 @@ export const addTotalAmount = (amount: number) =>
     amount,
   } as const);
 
-export const loadTransactions = ({
-  searchString,
-  sortString,
-}: {
-  searchString?: string;
-  sortString?: string;
-}): AppThunk => async (dispatch, getState) => {
+export const loadTransactions = (filter?: FilterDto): AppThunk => async (
+  dispatch,
+  getState
+) => {
   dispatch(setLoading(true));
 
   try {
@@ -42,9 +39,9 @@ export const loadTransactions = ({
     if (items.length > 0) {
       let _filtered = items.filter(
         (trx) =>
-          trx.beneficiary_name.toLowerCase().includes(searchString ?? "") ||
-          trx.sender_bank.toLowerCase().includes(searchString ?? "") ||
-          trx.beneficiary_bank.toLowerCase().includes(searchString ?? "")
+          trx.beneficiary_name.toLowerCase().includes(filter?.search ?? "") ||
+          trx.sender_bank.toLowerCase().includes(filter?.search ?? "") ||
+          trx.beneficiary_bank.toLowerCase().includes(filter?.search ?? "")
       );
       dispatch(setDisplayItems(_filtered));
     } else {
