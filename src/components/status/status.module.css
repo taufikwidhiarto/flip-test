@@ -1,0 +1,18 @@
+.StatusWrapper {
+  padding: 1em;
+}
+
+.Success {
+  color: #fff;
+  background-color: #56b586;
+  border-radius: 6px;
+  padding: 0.3em 1em;
+}
+
+.Pending {
+  color: #000;
+  background-color: transparent;
+  border-radius: 6px;
+  padding: 0.3em 1em;
+  border: 1px solid #fd6542;
+}
