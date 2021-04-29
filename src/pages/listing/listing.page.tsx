@@ -9,7 +9,7 @@ import {
   isLoading,
 } from "../../data/transactions/transactions.selector";
 import { FilterDto } from "../../types";
-import styles from "./listing.module.css";
+import styles from "./listing.page.module.css";
 
 const ListingPage = (): JSX.Element => {
   const dispatch = useDispatch();
