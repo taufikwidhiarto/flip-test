@@ -15,6 +15,17 @@ export function transactionsReducer(
       return {
         ...state,
         items: action.items,
+        displayItems: action.items,
+      };
+    case "add-total-amount":
+      return {
+        ...state,
+        totalAmount: action.amount,
+      };
+    case "set-display-items":
+      return {
+        ...state,
+        displayItems: action.items,
       };
     default:
       return state;

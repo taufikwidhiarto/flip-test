@@ -9,4 +9,11 @@ export const isLoading = createSelector(
   getTransactionState,
   (trx) => trx.loading
 );
-export const getItems = createSelector(getTransactionState, (trx) => trx.items);
+export const getDisplayItems = createSelector(
+  getTransactionState,
+  (trx) => trx.displayItems
+);
+export const getTotalAmount = createSelector(
+  getTransactionState,
+  (trx) => trx.totalAmount
+);
