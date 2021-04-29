@@ -1,0 +1,19 @@
+.HeaderWrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.Greeting {
+  font-size: 2em;
+  font-weight: 700;
+}
+
+.TransactionInfo {
+  font-size: 1.5em;
+}
+
+.TransactionValue {
+  color: #fd6542;
+  padding: 0 0.2em;
+  font-weight: bold;
+}
