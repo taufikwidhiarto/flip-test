@@ -1,8 +1,8 @@
 import React from "react";
 import styles from "./filter-box.module.css";
-import { Searchbar } from "../common/searchbar/searchbar.component";
-import { Dropdown } from "../common/dropdown/dropdown.component";
-import { DropdownItemDto, FilterDto } from "../../types";
+import { Searchbar } from "../searchbar/searchbar.component";
+import { Dropdown } from "../dropdown/dropdown.component";
+import { DropdownItemDto, FilterDto } from "../../../types";
 
 declare type FilterBoxProps = {
   searchTerm?: string;

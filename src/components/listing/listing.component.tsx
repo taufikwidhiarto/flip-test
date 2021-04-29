@@ -1,6 +1,6 @@
 import React from "react";
 import { DropdownItemDto, FilterDto, TransactionDto } from "../../types";
-import { FilterBox } from "../filter/filter-box.component";
+import { FilterBox } from "../common/filter/filter-box.component";
 import { TransactionItem } from "../item/item.component";
 import { ListingHeader } from "./listing-header/listing-header.component";
 import styles from "./listing.module.css";
