@@ -1,3 +1,5 @@
+import { type } from "node:os";
+
 export type TransactionDto = {
   id: string;
   amount: number;
@@ -11,4 +13,14 @@ export type TransactionDto = {
   created_at: string;
   completed_at: string;
   fee: number;
+};
+
+export type DropdownItemDto = {
+  id: number;
+  value: string;
+};
+
+export type FilterDto = {
+  search?: string;
+  sort?: string;
 };

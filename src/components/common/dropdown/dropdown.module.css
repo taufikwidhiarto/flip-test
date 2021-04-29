@@ -1,0 +1,42 @@
+.DropdownWrapper {
+  width: 100%;
+  position: relative;
+}
+
+.DropdownHeader {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+  cursor: pointer;
+}
+
+.HeaderIcon {
+  color: #fd6542;
+  width: 3em;
+  height: 3em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.DropdownContent {
+  width: 100%;
+  background-color: #fff;
+  border: 1px solid #d3d3d3;
+  position: absolute;
+  right: 0;
+}
+
+.MenuItem {
+  padding: 1em;
+  cursor: pointer;
+}
+
+.MenuItem:hover {
+  background-color: #ffc3b6;
+}
+
+.MenuItem.checked {
+  background-color: #ffc3b6;
+}
