@@ -23,9 +23,10 @@ const ListingPage = (): JSX.Element => {
     dispatch(loadTransactions());
   }, []);
 
-  const handleSearch = (update: Partial<FilterDto>) => {
-    setFilter(update);
-    dispatch(loadTransactions(update));
+  const handleSearch = (update: FilterDto) => {
+    const newState = { ...filter, ...update };
+    setFilter(newState);
+    dispatch(loadTransactions(newState));
   };
 
   return (

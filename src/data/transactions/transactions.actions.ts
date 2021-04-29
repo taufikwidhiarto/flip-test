@@ -26,10 +26,15 @@ export const addTotalAmount = (amount: number) =>
     amount,
   } as const);
 
-export const loadTransactions = (filter?: FilterDto): AppThunk => async (
-  dispatch,
-  getState
-) => {
+export const updateFilter = (filter: Partial<FilterDto>) =>
+  ({
+    type: "update-filter",
+    filter,
+  } as const);
+
+export const loadTransactions = (
+  filter?: Partial<FilterDto>
+): AppThunk => async (dispatch, getState) => {
   dispatch(setLoading(true));
 
   try {
@@ -43,6 +48,19 @@ export const loadTransactions = (filter?: FilterDto): AppThunk => async (
           trx.sender_bank.toLowerCase().includes(filter?.search ?? "") ||
           trx.beneficiary_bank.toLowerCase().includes(filter?.search ?? "")
       );
+      _filtered.sort((a, b) => {
+        if (filter?.sort === "Nama A-Z") {
+          return a.beneficiary_name > b.beneficiary_name ? 1 : -1;
+        } else if (filter?.sort === "Nama Z-A") {
+          return a.beneficiary_name < b.beneficiary_name ? 1 : -1;
+        } else if (filter?.sort === "Tanggal terbaru") {
+          return a.created_at < b.created_at ? 1 : -1;
+        } else if (filter?.sort === "Tanggal terlama") {
+          return a.created_at > b.created_at ? 1 : -1;
+        } else {
+          return 1;
+        }
+      });
       dispatch(setDisplayItems(_filtered));
     } else {
       const _result = await api.fetchListing();
@@ -64,4 +82,5 @@ export type TransactionActions =
   | ActionType<typeof setLoading>
   | ActionType<typeof addItems>
   | ActionType<typeof setDisplayItems>
+  | ActionType<typeof updateFilter>
   | ActionType<typeof addTotalAmount>;
