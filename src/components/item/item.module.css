@@ -43,3 +43,9 @@
   display: flex;
   flex-direction: row;
 }
+
+.StatusWrapper {
+  display: flex;
+  margin-right: 1em;
+  align-items: center;
+}

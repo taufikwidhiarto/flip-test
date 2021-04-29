@@ -26,10 +26,10 @@ export const addTotalAmount = (amount: number) =>
     amount,
   } as const);
 
-export const updateFilter = (filter: Partial<FilterDto>) =>
+export const setDetailByID = (trxId: string) =>
   ({
-    type: "update-filter",
-    filter,
+    type: "set-detail",
+    trxId,
   } as const);
 
 export const loadTransactions = (
@@ -82,5 +82,5 @@ export type TransactionActions =
   | ActionType<typeof setLoading>
   | ActionType<typeof addItems>
   | ActionType<typeof setDisplayItems>
-  | ActionType<typeof updateFilter>
-  | ActionType<typeof addTotalAmount>;
+  | ActionType<typeof addTotalAmount>
+  | ActionType<typeof setDetailByID>;

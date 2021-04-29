@@ -1,4 +1,3 @@
-import React from "react";
 import styles from "./status.module.css";
 
 export const TransactionStatus = ({
@@ -13,5 +12,5 @@ export const TransactionStatus = ({
     view = <div className={styles.Pending}>{"Pengecekan"}</div>;
   }
 
-  return <div className={styles.StatusWrapper}>{view}</div>;
+  return <div>{view}</div>;
 };

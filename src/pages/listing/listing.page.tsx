@@ -21,6 +21,7 @@ const ListingPage = (): JSX.Element => {
 
   useEffect(() => {
     dispatch(loadTransactions());
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const handleSearch = (update: FilterDto) => {

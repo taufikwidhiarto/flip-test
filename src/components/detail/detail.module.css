@@ -1,0 +1,59 @@
+.DetailWrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.DetailHeader {
+  display: flex;
+  flex-direction: row;
+  background-color: #fff;
+  align-items: center;
+  padding: 1em 1.5em;
+  border-radius: 6px;
+}
+
+.HeaderText {
+  font-weight: bold;
+  font-size: 1em;
+  flex: 1;
+}
+
+.ContentWrapper {
+  display: flex;
+  flex-direction: row;
+  background-color: #fff;
+  border-radius: 6px;
+  padding: 1.5em;
+  margin: 1em 0;
+}
+
+.ContentIcon {
+  color: #fd6542;
+}
+
+.ContentItem {
+  display: flex;
+  flex-direction: column;
+  margin-left: 1.5em;
+}
+
+.ItemWrapper {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1em;
+  line-height: 1.5em;
+}
+
+.ItemTitle {
+  font-weight: bold;
+}
+
+.BackButton {
+  padding: 0.6em 1em;
+  color: #fd6542;
+  border-radius: 6px;
+  font-weight: 600;
+  background-color: transparent;
+  border: 2px solid #fd6542;
+  cursor: pointer;
+}

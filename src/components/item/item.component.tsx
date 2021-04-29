@@ -4,6 +4,8 @@ import styles from "./item.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faLongArrowAltRight } from "@fortawesome/free-solid-svg-icons";
 import { TransactionStatus } from "../status/status.component";
+import { useHistory } from "react-router";
+import { getCurrency, getDate } from "../../data/data.utils";
 
 declare type TransactionItemProps = {
   loading?: boolean;
@@ -14,23 +16,16 @@ const TransactionItem = ({
   loading,
   item,
 }: TransactionItemProps): JSX.Element => {
-  const amount = item.amount.toLocaleString("id-ID", {
-    style: "currency",
-    currency: "IDR",
-    minimumFractionDigits: 0,
-    maximumFractionDigits: 0,
-  });
+  const history = useHistory();
 
-  const date = new Date(item.created_at).toLocaleDateString("id-ID", {
-    day: "numeric",
-    month: "long",
-    year: "numeric",
-  });
+  const handleClick = (): void => {
+    history.push(`/detail/${item.id}`);
+  };
 
   return loading ? (
     <div></div>
   ) : (
-    <div className={styles.Item}>
+    <div className={styles.Item} onClick={handleClick}>
       <div
         className={`${styles.Indicator} ${
           item.status === "SUCCESS" && styles.Success
@@ -38,20 +33,20 @@ const TransactionItem = ({
       ></div>
       <div className={styles.ItemContent}>
         <span className={styles.Bank}>
-          {item.sender_bank.toUpperCase()}
+          {item.sender_bank}
           <FontAwesomeIcon className={styles.Gap} icon={faLongArrowAltRight} />
-          {item.beneficiary_bank.toUpperCase()}
+          {item.beneficiary_bank}
         </span>
-        <span className={styles.beneficiaryName}>
-          {item.beneficiary_name.toUpperCase()}
-        </span>
+        <span className={styles.beneficiaryName}>{item.beneficiary_name}</span>
         <span className={styles.AmountAndDate}>
-          {amount}
+          {getCurrency(item.amount)}
           <div className={styles.Gap}>&#8226;</div>
-          {date}
+          {getDate(item.created_at)}
         </span>
       </div>
-      <TransactionStatus status={item.status} />
+      <div className={styles.StatusWrapper}>
+        <TransactionStatus status={item.status} />
+      </div>
     </div>
   );
 };

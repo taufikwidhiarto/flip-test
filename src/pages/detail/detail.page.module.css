@@ -1,0 +1,14 @@
+.DetailPage {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.Title {
+  color: #333333;
+  font-size: 3em;
+  font-weight: 300;
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+  align-self: center;
+}

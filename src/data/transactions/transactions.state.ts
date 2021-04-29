@@ -5,6 +5,7 @@ export interface TransactionState {
   items: TransactionDto[];
   displayItems: TransactionDto[];
   totalAmount: number;
+  detail: TransactionDto | undefined;
 }
 
 export const initialState: TransactionState = {
@@ -12,4 +13,5 @@ export const initialState: TransactionState = {
   items: [],
   displayItems: [],
   totalAmount: 0,
+  detail: undefined,
 };
