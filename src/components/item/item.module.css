@@ -1,0 +1,45 @@
+.Item {
+  display: flex;
+  flex-direction: row;
+  background-color: #fff;
+  border-radius: 4px;
+  margin-bottom: 0.5em;
+  overflow: hidden;
+}
+
+.Indicator {
+  width: 4px;
+  background-color: #fd6542;
+}
+
+.Indicator.Success {
+  background-color: #56b586;
+}
+
+.ItemContent {
+  display: flex;
+  flex-direction: column;
+  padding: 1em;
+  flex: 1;
+}
+
+.Bank {
+  display: flex;
+  font-size: 1.2em;
+  flex-direction: row;
+  font-weight: bold;
+  align-items: center;
+}
+
+.Gap {
+  margin: 0 2px;
+}
+
+.beneficiaryName {
+  padding: 2px 0;
+}
+
+.AmountAndDate {
+  display: flex;
+  flex-direction: row;
+}
